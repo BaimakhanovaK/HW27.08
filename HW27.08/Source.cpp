@@ -63,7 +63,7 @@ void h4(int* &a, int n) {
 	srand(time(NULL));
 	for (int i = 0; i < n; i++)
 	{
-		a[i] = 1 + rand() % 20;
+		a[i] = -10 + rand() % 20;
 	}
 }
 
@@ -132,45 +132,25 @@ void h9(int* &a, int&n, int index) {
 
 //4 zadanie 4.	Ќаписать функцию, котора€ получает указатель на динамический массив и его размер. 
 //‘ункци€ должна удалить из массива все отрицательные числа и вернуть указатель на новый динамический массив.
-void h10(int *a, int n, int &k) {
-	srand(time(NULL));
-	int i, *b,j;
-	for (int i = 0; i < n; i++)
-	{
-		a[i] = -10 + rand() % 20;
-		cout << a[i] << " ";
-	}
-	cout << endl;
-	k = 0;
+void h10(int *a, int n, int *&x, int &m) {	
+	int k = 0;
 	for (int i = 0; i < n; i++)
 	{
 		if (a[i] >=0)
 			k++;
 	}
-	b = new int[k];
-	j = 0;
+	x = new int[k];
+	int j = 0;
 	for (int i = 0; i < n; i++)
 	{
 		if (a[i] >=0)
-			b[j++] = a[i];
+			x[j++] = a[i];
 	}
-	delete[] a;
-	a=b;
+	m = k;
 }
 
 
 int main() {
-
-	int* A =new int[10];
-	int i, n, *b;
-	h10(A, 10, n);
-
-	for (i = 0; i < n; i++)
-		cout << b[i] << " ";
-	cout << endl;
-
-	delete[] b;
-
 	//3 zadanie
 	/*int* a2;
 	int n;
@@ -180,14 +160,19 @@ int main() {
 	h5(a2, n);
 	h7(a2, n, 23);
 	h5(a2, n);
-
 	h8(a2, n, 4, 45);
 	h5(a2, n);
-
 	h9(a2, n, 5);
 	h5(a2, n);
+*/
+	//4 zadanie
+	/*int* x;
+	int m = 0;
+	h10(a2, n, x, m);
+	h5(x, m);
 
-	h6(a2, n);*/
+	h6(a2, n);
+	delete[] x;*/
 
 
 	//2 zadanie
